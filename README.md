@@ -2,6 +2,12 @@
 
 **A bearer token anyone holding it can narrow, and nobody can widen.**
 
+> **Not the fleet's delegation centre — that is `kotoba-lang/org-biscuitsec`**
+> (root ADR-2608180200). This is the narrow case: **the verifier already holds
+> the root secret.** A macaroon chains an HMAC, so every place that verifies
+> needs that secret, and kotobase verifies at the edge. Use it inside one
+> trust domain; use a biscuit across principals.
+
 ```clojure
 (require '[macaroon.core :as m] '[macaroon.authority :as ma])
 
@@ -73,6 +79,21 @@ once, in the safe direction: **an unrecognised kind is not satisfiable.**
 The first three are the ones a lattice can *fold* rather than merely check,
 so three caveats narrowing scope produce one scope set and the result is
 again a grant.
+
+## Scored against the alternatives
+
+Root ADR-2608180200, 0–5, weighted for this workspace. The row that decided it:
+
+| | offline | **verify w/o secret** | attenuation | expressiveness | revocation | wire maturity | implemented here | total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| biscuit | 5 | **5** | 5 | 5 | 3 | 2 | 4 | 29 |
+| UCAN | 5 | 5 | 5 | 3 | 4 | 4 | 4 | 30 |
+| **macaroon** | 5 | **0** | 5 | 3 | 2 | 2 | 4 | **21** |
+| CACAO | 5 | 5 | 2 | 2 | 3 | 4 | 5 | 26 |
+| bearer token | 0 | 0 | 0 | 0 | 5 | 5 | 5 | 15 |
+
+The zero is not a defect of the format; it is the format. Everything a
+macaroon buys follows from the verifier holding the key that minted it.
 
 ## What it refuses
 
