@@ -26,7 +26,7 @@
   *fold* rather than merely check: three caveats narrowing scope produce one
   scope set, and the result is again a grant. `:opaque` is the escape hatch
   and it is deliberately the only one that needs a predicate."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def kinds #{:scope :before :holder :opaque})
 

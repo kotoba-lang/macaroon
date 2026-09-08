@@ -43,7 +43,7 @@
   read anything this produces, and until one has, saying \"macaroon format\"
   would be the kind of claim `org-apache-parquet` learned to distrust from
   inside its own test suite."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [macaroon.caveat :as cav]))
 
 (def version "macaroon/edn-v1")
