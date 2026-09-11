@@ -2,6 +2,6 @@
   "name": "@kotoba-lang/macaroon",
   "private": true,
   "scripts": {
-    "test:nbb": "nbb --classpath src:test:../authority/src:../crypto/src run-nbb-tests.cljs"
+    "test:nbb": "nbb --classpath src:test:../authority/src:../crypto/src run-nbb-tests.cljk"
   }
 }
