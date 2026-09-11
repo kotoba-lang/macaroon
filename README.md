@@ -113,7 +113,7 @@ macaroon buys follows from the verifier holding the key that minted it.
 
 ## Verification
 
-`clojure -M:test` and `npm run test:nbb` — **18 tests, 39 assertions**, both
+`kbb -M:test` and `npm run test:nbb` — **18 tests, 39 assertions**, both
 green, with a real HMAC-SHA-256 on both runtimes (not a stub: the
 un-removability of a caveat is a property of a PRF).
 
