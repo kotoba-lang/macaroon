@@ -1,5 +1,5 @@
 (ns macaroon.core-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [macaroon.caveat :as cav]
             [macaroon.core :as m]
             [macaroon.hmac :as h]))
