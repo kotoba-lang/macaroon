@@ -1,6 +1,6 @@
 (ns macaroon.authority-test
   (:require [authority.grant :as grant]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [macaroon.authority :as ma]
             [macaroon.core :as m]
             [macaroon.hmac :as h]))
